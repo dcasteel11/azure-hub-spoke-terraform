@@ -33,7 +33,7 @@ module "network" {
   spokes = {
     app = {
       address_space = ["10.1.0.0/22"]
-      subnets       = {
+      subnets = {
         web = { address_prefixes = ["10.1.0.0/24"] }
 
         data = {
@@ -44,7 +44,7 @@ module "network" {
     }
     data = {
       address_space = ["10.2.0.0/22"]
-      subnets       = {
+      subnets = {
         private-endpoints = { address_prefixes = ["10.2.0.0/24"] }
       }
     }
