@@ -20,7 +20,7 @@ variable "hub_address_space" {
 
 variable "hub_subnets" {
   description = "Subnets in the hub. Reserved names such as AzureFirewallSubnet and GatewaySubnet are supported and do not get an NSG."
-  type        = map(object({
+  type = map(object({
     address_prefixes  = list(string)
     service_endpoints = optional(list(string), [])
   }))
@@ -28,9 +28,9 @@ variable "hub_subnets" {
 
 variable "spokes" {
   description = "Spoke virtual networks keyed by workload name."
-  type        = map(object({
+  type = map(object({
     address_space = list(string)
-    subnets       = map(object({
+    subnets = map(object({
       address_prefixes                  = list(string)
       service_endpoints                 = optional(list(string), [])
       private_endpoint_network_policies = optional(string, "Enabled")

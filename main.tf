@@ -35,6 +35,7 @@ resource "azurerm_virtual_network" "hub" {
 }
 
 resource "azurerm_subnet" "hub" {
+  #checkov:skip=CKV2_AZURE_31:Reserved subnets (firewall, gateway, Bastion) cannot take an NSG; all others are associated below
   for_each = var.hub_subnets
 
   name                 = each.key
